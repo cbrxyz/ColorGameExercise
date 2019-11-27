@@ -108,3 +108,29 @@ body {
 .squares-container:nth-child(odd) div {
     margin-bottom: 0;
 }
+
+.option {
+    background-color: white;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .25s;
+    transition: .25s;
+}
+
+.option:hover {
+    background-color: #4287f5;
+    color: white;
+    height: 14px;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+#response-span {
+    font-size: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: inline-block;
+    height: 7px;
+    line-height: 14px;
+}
