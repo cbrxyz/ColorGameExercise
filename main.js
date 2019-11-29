@@ -15,7 +15,7 @@ function generateRGB() {
     colorSquares(redColor, greenColor, blueColor);
 }
 
-function colorSquares(correctRed, correctBlue, correctGreen) {
+function colorSquares(correctRed, correctGreen, correctBlue) {
     //Get the squares, put them in array
     var squares = document.querySelectorAll(".squares");
     /* for (i = 1; i < 7; i++) {
@@ -31,14 +31,17 @@ function colorSquares(correctRed, correctBlue, correctGreen) {
 
     //Color squares
     correctSquareElement.style.background = "RGB(" + correctRed + "," + correctGreen + "," + correctBlue + ")";
+    correctSquareElement.classList.add("correctS");
+    correctSquareElement.addEventListener("click", correctSquare)
     console.log(squares);
     for (i = 0; i < 6; i++) {
-        squares[i].addEventListener("click", testSquare(i));
         if (i == correctSquareSelector) { continue; }
+        squares[i].addEventListener("click", wrongSquare);
         var quickRandomRed = Math.round(Math.random() * 255);
         var quickRandomGreen = Math.round(Math.random() * 255);
         var quickRandomBlue = Math.round(Math.random() * 255);
         squares[i].style.background = "RGB(" + quickRandomRed + "," + quickRandomGreen + "," + quickRandomBlue + ")";
+        squares[i].classList.add("wrongS");
     }
 }
 
@@ -50,6 +53,10 @@ function setResponse(message) {
     document.getElementById("response-span").textContent = message;
 }
 
-function testSquare(i) {
-    alert("Square " + i + " clicked.");
+function wrongSquare() {
+    alert("You clicked the wrong square.");
+}
+
+function correctSquare() {
+    alert("You clicked the correct square.");
 }
